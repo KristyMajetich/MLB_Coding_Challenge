@@ -1,6 +1,8 @@
 package SecretSanta;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 public class SecretSanta 
@@ -8,14 +10,15 @@ public class SecretSanta
 		
 	public SecretSanta(String[] names)
 	{
+		//TODO find a way to check names array for duplicate entries
 		
-		if(names.length > 1)
+		if(names.length > 1) //Need more than one person for a secret santa
 		{
-			Participant[] participants = new Participant[names.length];
+			ArrayList<Participant> participants = new ArrayList<Participant>();
 
 			for (int i = 0; i < names.length; i++)
 			{
-				participants[i] = new Participant(names[i]);
+				participants.add(i, new Participant(names[i]));
 			}
 
 			drawNames(participants);
@@ -23,45 +26,36 @@ public class SecretSanta
 			System.out.println(toString(participants));
 		}
 		else
+		{
 			System.out.println("Invalid input");
+		}
 	}
 
-	public void drawNames(Participant[] buyers) 
+	public void drawNames(ArrayList<Participant> participants) 
 	{
-		Participant[] receivers;
+		ArrayList<Participant> receivers = (ArrayList<Participant>) participants.clone();
 		
 		do
 		{
-			receivers = shuffleNames(Arrays.copyOf(buyers, buyers.length));
-			for (int i = 0; i < buyers.length; i++)
+			//shuffle the list and draw names at least once 
+			//do it again if the outcome is not valid
+			//TODO find a more efficient way to accomplish this...
+			
+			Collections.shuffle(receivers);
+			for (int i = 0; i < receivers.size(); i++)
 			{
-				buyers[i].setRecipient(receivers[i]);
+				participants.get(i).setRecipient(receivers.get(i));
 			}
-		} while (!isValidList(receivers));
+		} while (!isValidList(receivers)); 
 		
 	}
 	
-	public Participant[] shuffleNames(Participant[] array)
+	public boolean isValidList(ArrayList<Participant> receivers)
 	{
-		int index;
-		Participant temp; 
-		Random gen = new Random();
-		
-		for(int i = 0; i < array.length; i++)
+		for (Participant p : receivers)
 		{
-			index = gen.nextInt(array.length);
-	        temp = array[index];
-	        array[index] = array[i];
-	        array[i] = temp;
-		}
-		
-		return array; 
-	}
-	
-	public boolean isValidList(Participant[] participants)
-	{
-		for (Participant p : participants)
-		{
+			//cycle through the list, check to see if anyone has selected them self 
+			//if so, return false to shuffle again
 			if (p.getName().equals(p.getRecipient().getName()))
 			{				
 				return false;
@@ -70,7 +64,7 @@ public class SecretSanta
 		return true;
 	}
 
-	public String toString(Participant[] participants)
+	public String toString(ArrayList<Participant> participants)
 	{
 		String s = "Secret Santa:\n";
 		
