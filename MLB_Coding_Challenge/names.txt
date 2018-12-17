@@ -1,0 +1,32 @@
+BUYER=Kristy
+PREV=Jeanne Donna Bobby
+
+BUYER=Jeanne
+PREV=Karlita Ben Levi
+
+BUYER=Rich
+PREV=Alea Julie Kori
+
+BUYER=Donna
+PREV=Kristy Levi Ben
+
+BUYER=Levi
+PREV=Jeanne Karlita Kori
+
+BUYER=Bobby
+PREV=Kristy Rich Donna
+
+BUYER=Alea
+PREV=Rich Levi Bobby
+
+BUYER=Julie
+PREV=Kristy Bobby Alea
+
+BUYER=Ben
+PREV= Jeanne Donna Julie
+
+BUYER=Kori
+PREV=Rich Julie Ben
+
+BUYER=Karlita
+PREV=Bobby Alea Kori
