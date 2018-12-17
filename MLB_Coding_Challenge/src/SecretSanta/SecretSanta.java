@@ -101,7 +101,7 @@ public class SecretSanta
 			}
 			for (String s : p.getPreviousRecipients())
 			{
-				if (p.getName().equals(s))
+				if (p.getRecipient().getName().equals(s))
 				{
 					return false;
 				}
