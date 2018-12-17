@@ -18,10 +18,12 @@ public class SecretSanta
 		
 		/*		
 		 * BUYER=buyer
-		 * previousReceivers=previousName1 previousName2 previousName3
+		 * PREV=previousName1 previousName2 previousName3
+		 * FAMILY=family1 family2 family 3
 		 */
 		final String BUYERID = "BUYER=";
 		final String PREVREC = "PREV=";
+		final String FAMILY = "FAMILY=";
 						
 		ArrayList<Participant> participants;
 		BufferedReader br;
@@ -43,6 +45,10 @@ public class SecretSanta
 				else if (s.contains(PREVREC))
 				{
 					participants.get(i).setPreviousRecipients(s.substring(PREVREC.length()).split(" "));
+				}
+				else if(s.contains(FAMILY))
+				{
+					participants.get(i).setFamilyMembers(s.substring(FAMILY.length()).split(" "));
 				}
 				else if (s.equals("\n"))
 				{
@@ -101,8 +107,15 @@ public class SecretSanta
 			}
 			for (String s : p.getPreviousRecipients())
 			{
-				if (p.getName().equals(s))
+				if (p.getRecipient().getName().equals(s))
 				{
+					return false;
+				}
+			}
+			for (String s : p.getFamilyMembers())
+			{
+				if(p.getRecipient().getName().equals(s))
+				{					
 					return false;
 				}
 			}

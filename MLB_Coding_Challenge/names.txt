@@ -1,32 +1,43 @@
 BUYER=Kristy
 PREV=Jeanne Donna Bobby
+FAMILY=Jeanne Rich
 
 BUYER=Jeanne
 PREV=Karlita Ben Levi
+FAMILY=Kristy Rich
 
 BUYER=Rich
 PREV=Alea Julie Kori
+FAMILY=Jeanne Kristy
 
 BUYER=Donna
 PREV=Kristy Levi Ben
+FAMILY=Levi Kori
 
 BUYER=Levi
 PREV=Jeanne Karlita Kori
+FAMILY=Donna Kori
 
 BUYER=Bobby
 PREV=Kristy Rich Donna
+FAMILY=Alea
 
 BUYER=Alea
 PREV=Rich Levi Bobby
+FAMILY=Bobby
 
 BUYER=Julie
 PREV=Kristy Bobby Alea
+FAMILY=Ben
 
 BUYER=Ben
 PREV= Jeanne Donna Julie
+FAMILY=Julie
 
 BUYER=Kori
 PREV=Rich Julie Ben
+FAMILY=Donna Levi
 
 BUYER=Karlita
 PREV=Bobby Alea Kori
+FAMILY=

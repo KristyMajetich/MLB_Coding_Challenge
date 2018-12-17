@@ -5,6 +5,7 @@ public class Participant
 	private String name; 
 	private Participant recipient;
 	private String[] previousRecipients;
+	private String[] familyMembers;
 	public Participant(String name) 
 	{
 		this.name = name;
@@ -36,4 +37,13 @@ public class Participant
 		return previousRecipients;
 	}
 
+	public void setFamilyMembers(String[] familyMembers) 
+	{
+		this.familyMembers = familyMembers;
+	}
+	
+	public String[] getFamilyMembers()
+	{
+		return familyMembers;
+	}
 }
